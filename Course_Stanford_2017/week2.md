@@ -279,3 +279,15 @@ end;
 ## Vectorized implemetation
 
 prediction = theta' * x;
+
+## Gradient descent
+
+for j = 1:n+1,
+
+    for i = 1 + m,
+
+        theta(j) = theta(j) - alpha * delta(i) * x(i);
+    
+    end;
+
+end;
