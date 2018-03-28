@@ -31,3 +31,40 @@ Creat "year.pass", calulate avg_box
 
 		movie$avg_box = movie$box_numeric / movie$year.pass
 
+Create Function called "check_fizz_and_fuzz", if-else
+
+		check_fizz_and_fuzz <- function(x){
+		if (x %% 3 == 0 & x %% 5 == 0) {
+		out <- c("FizzFuzz")
+		} else if (x %% 3 == 0) {
+		out <- c("Fizz")
+		} else if (x %% 5 == 0) {
+		out <- c("Fuzz")
+		} else if(x %% 7 < 4) {
+		out <- c("Hi")
+		} else {
+		out <- c("Bye")
+		}
+		return(out)
+		}
+
+Use loop ans sapply to compare calculate speed
+
+		a <- c(1:1000)
+		start.time <- Sys.time()
+		sapply(a, check_fizz_and_fuzz)
+		end.time <- Sys.time()
+		time.taken <- end.time - start.time
+		time.taken
+
+		start.time <- Sys.time()
+		for (i in a){
+		    print(check_fizz_and_fuzz(i))}
+		end.time <- Sys.time()
+		time.taken <- end.time - start.time
+		time.taken
+
+Find disp above median in mtcar
+		data("mtcar")
+		x <- which(mtcars$disp > median(mtcars$disp, na.rm = FALSE))
+		mtcars[x,]
